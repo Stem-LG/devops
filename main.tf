@@ -66,8 +66,8 @@ locals {
 
 resource "virtualbox_vm" "web_server" {
   name   = var.web_server_name
-  cpus      = 2
-  memory    = "512 mib"
+  cpus      = var.vm_cpus
+  memory    = var.vm_memory
   image  = var.ubuntu_image
   
   network_adapter {
@@ -122,8 +122,8 @@ resource "virtualbox_vm" "web_server" {
 
 resource "virtualbox_vm" "db_server" {
   name   = var.db_server_name
-  cpus   = 1
-  memory = "512 mib"
+  cpus   = var.vm_cpus
+  memory = var.vm_memory
   image  = var.ubuntu_image
 
   network_adapter {
